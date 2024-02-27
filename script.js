@@ -47,4 +47,8 @@ equal.addEventListener("click",()=>{
     alert(mathValues)
 })
 
+clear.addEventListener("click",()=>{
+    mathValues = ""
+    display.textContent = ""
+})
 
