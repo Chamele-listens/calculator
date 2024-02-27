@@ -33,6 +33,7 @@ function operate(firstNum,secondNum,operator){
 
 const buttons = document.querySelectorAll('.number, .operator')
 const equal = document.querySelector(".equal")
+const clear = document.querySelector(".clear")
 
 
 buttons.forEach((button)=>{
@@ -45,4 +46,5 @@ buttons.forEach((button)=>{
 equal.addEventListener("click",()=>{
     alert(mathValues)
 })
+
 
