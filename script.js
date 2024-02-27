@@ -34,11 +34,11 @@ function operate(firstNum,secondNum,operator){
 const buttons = document.querySelectorAll('.number, .operator')
 const equal = document.querySelector(".equal")
 const clear = document.querySelector(".clear")
+const display = document.querySelector(".display")
 
 
 buttons.forEach((button)=>{
     button.addEventListener("click",()=> {
-        const display = document.querySelector(".display")
         return mathValues = display.textContent += button.value
     })
 })
