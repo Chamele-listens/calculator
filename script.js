@@ -39,12 +39,14 @@ const display = document.querySelector(".display")
 
 buttons.forEach((button)=>{
     button.addEventListener("click",()=> {
-        return mathValues = display.textContent += button.value
+        return mathValues = display.textContent += `${button.value}`
     })
 })
 
 equal.addEventListener("click",()=>{
-    alert(mathValues)
+    let sortedMath = mathValues.split(" ")
+    let answer =operate(Number(sortedMath[0]),Number(sortedMath[2]),sortedMath[1])
+    display.textContent = answer
 })
 
 clear.addEventListener("click",()=>{
