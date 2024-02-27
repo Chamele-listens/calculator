@@ -30,3 +30,12 @@ function operate(firstNum,secondNum,operator){
         return divide(firstNum,secondNum)
     }
 }
+
+const numberButtons = document.querySelectorAll('.number')
+
+numberButtons.forEach((button)=>{
+    button.addEventListener("click",()=> {
+        const display = document.querySelector(".display")
+        let mathValues = display.textContent += button.value
+    })
+})
