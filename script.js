@@ -31,11 +31,18 @@ function operate(firstNum,secondNum,operator){
     }
 }
 
-const numberButtons = document.querySelectorAll('.number')
+const buttons = document.querySelectorAll('.number, .operator')
+const equal = document.querySelector(".equal")
 
-numberButtons.forEach((button)=>{
+
+buttons.forEach((button)=>{
     button.addEventListener("click",()=> {
         const display = document.querySelector(".display")
-        let mathValues = display.textContent += button.value
+        return mathValues = display.textContent += button.value
     })
 })
+
+equal.addEventListener("click",()=>{
+    alert(mathValues)
+})
+
