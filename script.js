@@ -53,9 +53,16 @@ operatorButtons.forEach((button)=>{
 equal.addEventListener("click",()=>{
     let mathValues = display.textContent
     let sortedMath = mathValues.split(" ")
+    while (sortedMath.includes("*") || sortedMath.includes("/")){
+        //MD is reference from pemdas
+        let operatorMD = sortedMath.indexOf("*")
+        let answer = operate(sortedMath[operatorMD - 1], sortedMath[operatorMD + 1], sortedMath[operatorMD])
+        sortedMath.splice(operatorMD - 1, 3,answer)   
+    }
+    alert(sortedMath)
     
-    let answer = operate(Number(sortedMath[0]),Number(sortedMath[2]),sortedMath[1])
-    display.textContent = answer
+    //let answer = operate(Number(sortedMath[0]),Number(sortedMath[2]),sortedMath[1])
+    //display.textContent = answer
 })
 
 clear.addEventListener("click",()=>{
