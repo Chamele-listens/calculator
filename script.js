@@ -78,7 +78,8 @@ equal.addEventListener("click",()=>{
     //alert(sortedMath)
     
     //let answer = operate(Number(sortedMath[0]),Number(sortedMath[2]),sortedMath[1])
-    display.textContent = sortedMath
+    display.textContent = Math.round(sortedMath  * 100) / 100
+
 })
 
 clear.addEventListener("click",()=>{
