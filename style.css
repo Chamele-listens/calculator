@@ -1,5 +1,6 @@
 .Calculator{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -10,4 +11,24 @@
     flex-wrap: wrap;
     height: 100px;
     width: 80px;
+}
+
+.number{
+    font-size: 15px;
+}
+
+.operator{
+    font-size: 15px;
+}
+
+.operator-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center ;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
 }
