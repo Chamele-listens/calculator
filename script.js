@@ -56,6 +56,13 @@ NumberButtons.forEach((button)=>{
 
 operatorButtons.forEach((button)=>{
     button.addEventListener("click",() =>{
+        let mathValues = display.textContent
+        let sortedMath = mathValues.split(" ")
+        if (sortedMath.length > 2){
+            let answer = operate(Number(sortedMath[0]),Number(sortedMath[2]),sortedMath[1])
+            sortedMath.splice(0,3,answer)
+            display.textContent = sortedMath
+        }
         display.textContent += ` ${button.value} `
     })
 })
