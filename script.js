@@ -4,7 +4,7 @@ function add(a,b){
 }
 
 function subtract(a,b){
-    return a - b
+    return Number(a) - Number(b)
 }
 
 function multiply(a,b){
@@ -31,6 +31,13 @@ function operate(firstNum,secondNum,operator){
     }
 }
 
+function longChainCalc(mathArr,operator){
+    let operatorIndex = mathArr.indexOf(operator)
+    let answer = operate(mathArr[operatorIndex - 1], mathArr[operatorIndex + 1], mathArr[operatorIndex])
+    mathArr.splice(operatorIndex - 1, 3,answer)
+    return mathArr
+}
+
 const NumberButtons = document.querySelectorAll('.number')
 const operatorButtons = document.querySelectorAll('.operator')
 const equal = document.querySelector(".equal")
@@ -53,22 +60,31 @@ operatorButtons.forEach((button)=>{
 equal.addEventListener("click",()=>{
     let mathValues = display.textContent
     let sortedMath = mathValues.split(" ")
-    while (sortedMath.includes("*") || sortedMath.includes("/")){
+    while (sortedMath.includes("*")){
         //MD is reference from pemdas
         let operatorMD = sortedMath.indexOf("*")
         let answer = operate(sortedMath[operatorMD - 1], sortedMath[operatorMD + 1], sortedMath[operatorMD])
         sortedMath.splice(operatorMD - 1, 3,answer)   
     }
 
-    while (sortedMath.includes("+") || sortedMath.includes("-")){
+    while (sortedMath.includes("/")){
+        longChainCalc(sortedMath,"/")
+    }
+
+    while (sortedMath.includes("+")){
+        //AS is reference from pemdas
         let operatorAS = sortedMath.indexOf("+")
         let answer = operate(sortedMath[operatorAS - 1], sortedMath[operatorAS + 1], sortedMath[operatorAS])
         sortedMath.splice(operatorAS - 1,3, answer)
     }
-    alert(sortedMath)
+
+    while (sortedMath.includes("-")){
+        longChainCalc(sortedMath,"-")
+    }
+    //alert(sortedMath)
     
     //let answer = operate(Number(sortedMath[0]),Number(sortedMath[2]),sortedMath[1])
-    //display.textContent = answer
+    display.textContent = sortedMath
 })
 
 clear.addEventListener("click",()=>{
